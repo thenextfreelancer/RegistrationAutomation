@@ -52,14 +52,14 @@ public class RegistrationAutomation
    public static void initSuite() throws Exception
    {
       if(prop == null) {
-         prop = loadPropertiesFile("data//data.properties");
+         prop = loadPropertiesFile("data.properties");
       }
+      driver.get(baseUrl);
+      
       System.out.println("Property file loaded. Press <Enter> to continue filling the form...");
       @SuppressWarnings("resource")
       Scanner sc = new Scanner(System.in);
       sc.nextLine();
-      
-      driver.get(baseUrl);
       
       Select permitSel = new Select(driver.findElement(By.id("permit_under")));
       permitSel.selectByVisibleText(prop.getProperty("permit_under"));
